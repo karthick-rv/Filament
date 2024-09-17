@@ -1,4 +1,4 @@
-package com.example.filament.ui.theme
+package com.example.filament.core.theme
 
 import android.app.Activity
 import android.os.Build

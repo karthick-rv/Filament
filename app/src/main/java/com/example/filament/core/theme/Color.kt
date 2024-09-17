@@ -1,4 +1,4 @@
-package com.example.filament.ui.theme
+package com.example.filament.core.theme
 
 import androidx.compose.ui.graphics.Color
 
