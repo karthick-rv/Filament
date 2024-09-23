@@ -36,7 +36,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.filament.R
 import com.example.filament.core.theme.FilamentTheme
 import com.example.filament.presentation.quiz.QuizScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : ComponentActivity() {
 
 

@@ -8,6 +8,7 @@ import com.example.filament.data.repository.QuizRepository
 import com.example.filament.data.service.QuizApi
 import com.example.filament.domain.models.QuizDomainModel
 import com.example.filament.domain.models.toQuizDomainModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -15,8 +16,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class QuizViewModel : ViewModel() {
+@HiltViewModel
+class QuizViewModel @Inject constructor(val repository: QuizRepository) : ViewModel() {
 
     private var _quizUiState: MutableStateFlow<QuizUiState> = MutableStateFlow(createData())
     val quizUiState: StateFlow<QuizUiState> = _quizUiState
@@ -79,7 +82,7 @@ class QuizViewModel : ViewModel() {
         }
 
         private fun fetchQuiz() {
-            val repository = QuizRepository(ApiInstance.createService(QuizApi::class.java))
+//            val repository = QuizRepository(ApiInstance.createService(QuizApi::class.java))
             fetchJob?.cancel()
 
             fetchJob = viewModelScope.launch(Dispatchers.IO) {

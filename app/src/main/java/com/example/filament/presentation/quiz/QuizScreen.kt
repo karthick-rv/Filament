@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.filament.core.theme.gradientCyanWhite
@@ -33,7 +34,7 @@ import com.example.filament.presentation.components.BackButton
 @Composable
 fun QuizScreen(
     navController: NavHostController,
-    viewModel: QuizViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+    viewModel: QuizViewModel = hiltViewModel()
 ) {
 
     val quizState by viewModel.quizUiState.collectAsState()

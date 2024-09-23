@@ -5,9 +5,10 @@ import com.example.filament.data.models.response.QuizResponse
 import com.example.filament.data.service.QuizApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
 
-class QuizRepository(val remoteQuizApi: QuizApi) {
+class QuizRepository @Inject constructor(val remoteQuizApi: QuizApi) {
 
 
     suspend fun getQuizCollection(): Flow<Result<QuizResponse>> = flow {
