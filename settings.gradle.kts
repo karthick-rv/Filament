@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Filament"
 include(":app")
+include(":tulip")
