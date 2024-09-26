@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -66,4 +68,39 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
+
+
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:4.11.0")
+
+    testImplementation("io.mockk:mockk:1.13.12")
+    testImplementation("io.mockk:mockk-android:1.13.12")
+    testImplementation("io.mockk:mockk-agent:1.13.12")
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0-RC")
+    testImplementation("androidx.room:room-testing:2.6.1")
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
